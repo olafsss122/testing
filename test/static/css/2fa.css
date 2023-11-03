@@ -1,0 +1,30 @@
+.text-content {
+    border: 1px solid black; /* создание рамки вокруг текста */
+    padding: 10px; /* добавление отступа внутри рамки */
+    display: inline-block; /* размещение текста внутри рамки в ряд */
+}
+
+.form-check-label, .form-check-input {
+    display: block; /* размещение элементов в блоке для выравнивания каждого на новой строке */
+
+    /* border: 2px solid rgb(188, 175, 175);
+    border-radius: 5px; */
+}
+
+.form-check-input[type="submit"] {
+    margin-top: 10px; /* добавление отступа перед кнопкой "Select this option" */
+
+}
+/* Стили для подчеркивания текста после выбора радио-кнопки */
+input[type="radio"]:checked + label + .underline {
+    border-bottom: 2px solid #3498db; /* Цвет вашего выбора */
+    display: inline-block;
+    margin-bottom: -2px; /* Подстройка положения подчеркивания */
+    width: 100%; /* Ширина подчеркивания */
+}
+
+/* Опциональные стили при наведении */
+label:hover + .underline {
+    border-bottom: 2px solid #ccc; /* Цвет при наведении */
+}
+
